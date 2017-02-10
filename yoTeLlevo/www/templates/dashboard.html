@@ -1,0 +1,75 @@
+<ion-header-bar class="bar-energized">
+    <h1 class="title">
+      <img src="img/logo.png" style="height: 90% !important;text-align: center;padding: 4px;">
+    </h1>
+    <div class="buttons">
+      <button class="button button-icon icon ion-android-exit" ng-click="logout()"></button>
+    </div>
+    
+</ion-header-bar>
+
+<ion-view title="{{logo}}">
+    <ion-tabs class="tabs-energized tabs-icon-top">
+        <!-- Se listan las rutas que les pueden interesar -->
+        <ion-tab title="Rutas" icon-on="ion-map" icon-off="ion-android-map">
+            <list-routes-component ></list-rotes-component>
+        </ion-tab>
+
+        <!-- Se listan las solicitudes para tomar rutas que registre -->
+        <ion-tab title="Solicitudes" icon-on="ion-ios-world" icon-off="ion-ios-world-outline">
+          <list-request-component></list-request-component>
+        </ion-tab>
+
+        <!-- Se listan mis rutas y puntos -->
+        <ion-tab title="Mis rutas y puntos" icon-on="ion-ios-location" icon-off="ion-ios-location-outline">
+          <div class="row has-header">
+            <div class="col-50 tab-custom has-header tab energized-bg border-rigth selected">
+              <i class="icon ion-android-car"></i> Rutas
+            </div>
+
+            <div class="col-50 tab-custom has-header tab energized-bg border-left">
+             <i class="icon ion-location"></i> Puntos
+            </div>
+          </div>
+        </ion-tab>
+
+        <!-- Opciones -->
+        <ion-tab title="Opciones" icon-on="ion-gear-a" icon-off="ion-ios-gear-outline">
+          
+        </ion-tab>
+      </ion-tabs>
+
+  <ion-content>
+      
+  </ion-content>
+</ion-view>
+
+
+<style type="text/css">
+  input,.input-label,.button {
+   font-size: 5vw !important;     
+   height: 100% !important;
+ }
+
+ .border-left {
+    border-left: 0.5px white solid;
+ }
+
+ .border-rigth {
+    border-right: 0.5px white solid;
+ }
+
+  .tab-custom {
+      position: relative !important;
+      font-size: 6vw;
+      padding: 5px;
+      text-align: center;
+      height: 6vh;
+      color:white;
+  }
+
+  .selected {
+    opacity: 0.7;
+  }
+
+</style>

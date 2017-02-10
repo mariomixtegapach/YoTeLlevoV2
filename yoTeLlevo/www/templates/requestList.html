@@ -1,0 +1,28 @@
+
+<ion-scroll zooming="true" direction="y" style="height: 80%;" class="has-header">
+<h2 style="padding: 4px;padding-top: 10px;">Notificaciones</h2>
+  <div class="list" class="has-header">
+
+      <a class="item item-thumbnail-left item-text-wrap" ng-repeat="a in [1,2,34,5]">
+        <img src="img/perfil.jpg">
+        <h2>Mario Mixtega quiere que lo lleves</h2>
+        <p>Ruta <span style="font-weight: bold">Escuela - Casa</span></p>
+        <p><span style="font-weight: bold">Hace 2 min</span></p>
+         <div class="buttons">
+          <button class="button button-energized">
+              <i class="icon icon ion-checkmark"><span class="text-on-button">Yo te llevo</span></i>
+          </button>
+          <button class="button button-assertive">
+              <i class="icon icon ion-close"><span class="text-on-button">No te llevo</span></i>
+          </button>
+        </div>
+      </a>
+      
+  </div>
+</ion-scroll>
+
+<style type="text/css">
+  .text-on-button{
+    font-size: 5vmin !important;
+  }
+</style>

@@ -26,7 +26,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  max-width: 500px;
+  max-width: 500vmin;
   margin: auto;
 }
 
@@ -43,14 +43,14 @@
 
   .button {
     display: block;
-    padding: 1px;
+    padding: 1vmin;
     width: 100%;
     border-radius: 0;
     border-color: $sheet-options-border-color;
     background-color: transparent;
 
     color: $sheet-options-text-color;
-    font-size: 21px;
+    font-size: 21vmin;
 
     &:hover {
       color: $sheet-options-text-color;
@@ -73,14 +73,14 @@
 
 .action-sheet-has-icons .icon {
   position: absolute;
-  left: 16px;
+  left: 16vmin;
 }
 
 .action-sheet-title {
   padding: $sheet-margin * 2;
   color: #8f8f8f;
   text-align: center;
-  font-size: 13px;
+  font-size: 13vmin;
 }
 
 .action-sheet-group {
@@ -90,7 +90,7 @@
   overflow: hidden;
 
   .button {
-    border-width: 1px 0px 0px 0px;
+    border-width: 1vmin 0vmin 0vmin 0vmin;
   }
   .button:first-child:last-child {
     border-width: 0;
@@ -133,13 +133,13 @@
     .button {
       text-align: left;
       border-color: transparent;
-      font-size: 16px;
+      font-size: 16vmin;
       color: inherit;
     }
 
     .action-sheet-title {
-      font-size: 14px;
-      padding: 16px;
+      font-size: 14vmin;
+      padding: 16vmin;
       color: #666;
     }
 
@@ -162,7 +162,7 @@
   .action-sheet-has-icons {
 
     .button {
-      padding-left: 56px;
+      padding-left: 56vmin;
     }
 
   }

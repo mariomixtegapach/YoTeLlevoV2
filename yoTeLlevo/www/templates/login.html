@@ -1,0 +1,54 @@
+
+
+<!--<ion-header-bar class="bar-energized">
+  <h1 class="title">Yo Te Llevo</h1>
+</ion-header-bar>-->
+
+<ion-view title="Login" style="background: url('http://www.mendoza.travel/wp-content/mendoza_uploads/ruta.jpg') no-repeat center center fixed;background-size: cover;">
+  
+  <ion-content >
+  <div class="row" >
+    <div class="col" style="text-align: center;margin: 13px;">
+      <img src="img/logo.png" style="width: 50%;text-align: center;">
+    </div>
+  </div>
+
+  <h1 style="text-align: center;font-size: 10vw;color:white">Iniciar sesion</h1>
+
+    <div class="row responsive-sm responsive-md responsive-lg responsive-xl ">
+      <div class="col">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="username">
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col">
+        <label class="item item-input">
+          <span class="input-label">Contraseña</span>
+          <input type="password" ng-model="password">
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+     <div class="col">
+        <button class="button button-energized" style="width: 100%" ng-click="login()">
+          Iniciar sesion
+        </button>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
+
+
+			<div id="googleMap" style="width:100%; height:100%; position:absolute;">
+				
+			</div>
+
+<style type="text/css">
+  input,.input-label,.button { font-size: 5vw !important;     height: 100% !important;}
+</style>

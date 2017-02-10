@@ -2,16 +2,25 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
+var watch = require('gulp-watch')
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var notify = require("gulp-notify");
+var uglify = require('gulp-uglify');
 
 var paths = {
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['watch']);
+
+gulp.task('watch', function(){
+  gulp.watch('./assets/**/*.js',['scripts'], function(){
+    notify('Compilado wey!');
+  })
+});
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -26,7 +35,16 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
-gulp.task('watch', ['sass'], function() {
+gulp.task('scripts', function(done){
+  gulp.src('./assets/**/*.js')
+    .pipe(concat('yoTeLlevo-min.js'))
+    .on('error', err => { console.log(err) })
+    .pipe(uglify())
+    .pipe(gulp.dest('./www/js/'))
+    .on('end', done);
+});
+
+gulp.task('watchSaas', ['sass'], function() {
   gulp.watch(paths.sass, ['sass']);
 });
 

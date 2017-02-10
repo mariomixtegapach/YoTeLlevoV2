@@ -1,1 +1,24 @@
-/* Empty. Add your own CSS if you like */
+h1, h1 > span {
+  font-size: 7vmin !important;
+}
+h2,  h2 > span {
+  font-size: 6vmin !important;
+}
+h3,  h3 > span {
+  font-size: 5vmin !important;
+}
+
+h4,  h4 > span {
+  font-size: 4vmin !important;
+}
+
+h5,  h5 > span {
+  font-size: 3vmin !important;
+}
+
+* {
+  font-size: 4vmin !important;
+}
+i {
+	 font-size: 7vmin !important;
+}

@@ -8,8 +8,8 @@
   @include badge-style($badge-default-bg, $badge-default-text);
   z-index: $z-index-badge;
   display: inline-block;
-  padding: 3px 8px;
-  min-width: 10px;
+  padding: 3vmin 8vmin;
+  min-width: 10vmin;
   border-radius: $badge-border-radius;
   vertical-align: baseline;
   text-align: center;
@@ -58,5 +58,5 @@
 // Quick fix for labels/badges in buttons
 .button .badge {
   position: relative;
-  top: -1px;
+  top: -1vmin;
 }

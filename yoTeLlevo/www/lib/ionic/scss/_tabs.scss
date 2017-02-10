@@ -22,7 +22,7 @@
   height: $tabs-height;
 
   border-style: solid;
-  border-top-width: 1px;
+  border-top-width: 1vmin;
 
   background-size: 0;
   line-height: $tabs-height;
@@ -31,12 +31,12 @@
          (-webkit-min-device-pixel-ratio: 1.5),
          (min-device-pixel-ratio: 1.5),
          (min-resolution: 144dpi),
-         (min-resolution: 1.5dppx) {
-    padding-top: 2px;
+         (min-resolution: 1.5dpvmin) {
+    padding-top: 2vmin;
     border-top: none !important;
     border-bottom: none;
     background-position: top;
-    background-size: 100% 1px;
+    background-size: 100% 1vmin;
     background-repeat: no-repeat;
   }
 
@@ -193,7 +193,7 @@
     background-color: white;
     background-image: none;
     border: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1vmin solid #ddd;
     padding-top: $tabs-striped-border-width;
   }
   .tab-item {
@@ -317,11 +317,11 @@ ion-tabs {
       &.tab-item-active,
       &.active,
       &.activated {
-        margin-top: $tabs-striped-border-width - 1px;
-        border-width: 0px 0px $tabs-striped-border-width 0px !important;
+        margin-top: $tabs-striped-border-width - 1vmin;
+        border-width: 0vmin 0vmin $tabs-striped-border-width 0vmin !important;
         border-style: solid;
         > .badge, > i{
-          margin-top: -$tabs-striped-border-width + 1px;
+          margin-top: -$tabs-striped-border-width + 1vmin;
         }
       }
       .badge{
@@ -339,14 +339,14 @@ ion-tabs {
           &.activated {
              .tab-title, i{
             display:block;
-            margin-top: -$tabs-striped-border-width + 1px;
+            margin-top: -$tabs-striped-border-width + 1vmin;
           }
         }
       }
     }
     &.tabs-icon-left{
        .tab-item{
-          margin-top: 1px;
+          margin-top: 1vmin;
           &.tab-item-active,
           &.active,
           &.activated {
@@ -367,7 +367,7 @@ ion-tabs {
   padding-top: 0;
   background-position: bottom;
   border-top-width: 0;
-  border-bottom-width: 1px;
+  border-bottom-width: 1vmin;
   .tab-item {
     &.tab-item-active,
     &.active,
@@ -450,12 +450,12 @@ ion-tabs {
 
 .tabs-icon-left > .tabs .tab-item .icon,
 .tabs-icon-left.tabs .tab-item .icon {
-  padding-right: 3px;
+  padding-right: 3vmin;
 }
 
 .tabs-icon-right > .tabs .tab-item .icon,
 .tabs-icon-right.tabs .tab-item .icon {
-  padding-left: 3px;
+  padding-left: 3vmin;
 }
 
 .tabs-icon-only > .tabs .icon,
@@ -472,7 +472,7 @@ ion-tabs {
   position: absolute;
   top: 4%;
   right: 33%; // fallback
-  right: calc(50% - 26px);
+  right: calc(50% - 26vmin);
   padding: $tabs-badge-padding;
   height: auto;
   font-size: $tabs-badge-font-size;
