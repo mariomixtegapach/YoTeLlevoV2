@@ -1,0 +1,63 @@
+
+
+<!--<ion-header-bar class="bar-energized">
+  <h1 class="title">Yo Te Llevo</h1>
+</ion-header-bar>-->
+
+<ion-view title="Register" style="background: url('http://www.mendoza.travel/wp-content/mendoza_uploads/ruta.jpg') no-repeat center center fixed;background-size: cover;">
+  
+  <ion-content >
+  <div class="row" >
+    <div class="col" style="text-align: center;margin-top: 13px;">
+      <img src="img/logo.png" style="width: 50%;text-align: center;">
+    </div>
+  </div>
+
+  <h1 style="text-align: center;font-size: 10vw;color:white">Regisro</h1>
+     <div class="list list-inset">
+           <label class="item item-input">
+             <span class="input-label">Nombre</span>
+             <input type="text" ng-model="user.name">
+           </label>
+
+           <label class="item item-input">
+             <span class="input-label">Apellido</span>
+             <input type="text" ng-model="user.lastname">
+           </label>
+
+           <label class="item item-input">
+             <span class="input-label">Username</span>
+             <input type="text" ng-model="user.username">
+           </label>
+
+           <label class="item item-input">
+             <span class="input-label">Password</span>
+             <input type="password" ng-model="user.pass">
+           </label>
+    </div>
+
+    <div class="row">
+     <div class="col">
+        <button class="button button-energized" style="width: 100%" ng-click="register()">
+          Registrarse
+        </button>
+     </div>
+    </div>
+
+    <div class="row">
+       <div class="col" style="color:white; text-align: center;">
+          <p>¿Ya tienes una cuenta?<span ui-sref="login"><a>Inicia sesion</a></span></p>
+       </div>
+    </div>
+
+  </ion-content>
+</ion-view>
+
+
+			<div id="googleMap" style="width:100%; height:100%; position:absolute;">
+				
+			</div>
+
+<style type="text/css">
+  input,.input-label,.button { font-size: 5vw !important;     height: 100% !important;}
+</style>

@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('yoTeLlevo', ['ionic'])
+angular.module('yoTeLlevo', ['ionic','angular-toast'])
 
 .run(['$ionicPlatform',function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,12 +23,16 @@ angular.module('yoTeLlevo', ['ionic'])
   });
 }])
 
-  .config(['$stateProvider', '$urlRouterProvider','$ionicConfigProvider',
-    function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  .config(['$stateProvider', '$urlRouterProvider','$ionicConfigProvider', '$httpProvider',
+    function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
     $stateProvider
       .state('login', {
         url: '/login',
         template: '<login-component></login-component>',
+      })
+      .state('register', {
+        url: '/register',
+        template: '<register-component></register-component>',
       })
       .state('dashboard', {
         url: '/dashboard',
@@ -40,7 +44,7 @@ angular.module('yoTeLlevo', ['ionic'])
 
 
     $ionicConfigProvider.views.transition('ios');
-    $ionicConfigProvider.tabs.position('bottom');
+    $ionicConfigProvider.tabs.position('top');
 
-
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }]);

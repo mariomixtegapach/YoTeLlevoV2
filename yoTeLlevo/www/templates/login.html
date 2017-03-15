@@ -8,29 +8,24 @@
   
   <ion-content >
   <div class="row" >
-    <div class="col" style="text-align: center;margin: 13px;">
+    <div class="col" style="text-align: center;margin-top: 13px;">
       <img src="img/logo.png" style="width: 50%;text-align: center;">
     </div>
   </div>
 
   <h1 style="text-align: center;font-size: 10vw;color:white">Iniciar sesion</h1>
-
-    <div class="row responsive-sm responsive-md responsive-lg responsive-xl ">
-      <div class="col">
-        <label class="item item-input">
+    <div class="list list-inset">
+      <label class="item item-input">
           <span class="input-label">Username</span>
           <input type="text" ng-model="username">
         </label>
-      </div>
-    </div>
+      
 
-    <div class="row">
-     <div class="col">
+   
         <label class="item item-input">
           <span class="input-label">Contraseña</span>
           <input type="password" ng-model="password">
         </label>
-      </div>
     </div>
 
     <div class="row">
@@ -38,7 +33,13 @@
         <button class="button button-energized" style="width: 100%" ng-click="login()">
           Iniciar sesion
         </button>
-      </div>
+     </div>
+    </div>
+
+    <div class="row">
+       <div class="col" style="color:white; text-align: center;">
+          <p>¿Aun no tienes cuenta?<span ui-sref="register"><a>¡Registrate aquí!</a></span></p>
+       </div>
     </div>
 
   </ion-content>

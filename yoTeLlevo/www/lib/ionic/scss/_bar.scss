@@ -20,23 +20,23 @@
   height: $bar-height;
   border-width: 0;
   border-style: solid;
-  border-top: 1vmin solid transparent;
-  border-bottom: 1vmin solid $bar-default-border;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid $bar-default-border;
 
   background-color: $bar-default-bg;
 
-  /* border-width: 1vmin will actually create 2 device pixels on retina */
-  /* this nifty trick sets an actual 1vmin border on hi-res displays */
+  /* border-width: 1px will actually create 2 device pixels on retina */
+  /* this nifty trick sets an actual 1px border on hi-res displays */
   background-size: 0;
   @media (min--moz-device-pixel-ratio: 1.5),
          (-webkit-min-device-pixel-ratio: 1.5),
          (min-device-pixel-ratio: 1.5),
          (min-resolution: 144dpi),
-         (min-resolution: 1.5dpvmin) {
+         (min-resolution: 1.5dppx) {
     border: none;
     background-image: linear-gradient(0deg, $bar-default-border, $bar-default-border 50%, transparent 50%);
     background-position: bottom;
-    background-size: 100% 1vmin;
+    background-size: 100% 1px;
     background-repeat: no-repeat;
   }
 
@@ -55,12 +55,12 @@
 
   &.item-input-inset {
     .item-input-wrapper {
-      margin-top: -1vmin;
+      margin-top: -1px;
 
       input {
-        padding-left: 8vmin;
+        padding-left: 8px;
         width: 94%;
-        height: 28vmin;
+        height: 28px;
         background: transparent;
       }
     }
@@ -132,9 +132,9 @@
     z-index: $z-index-bar-title;
     overflow: hidden;
 
-    margin: 0 10vmin;
+    margin: 0 10px;
 
-    min-width: 30vmin;
+    min-width: 30px;
     height: $bar-height - 1;
 
     text-align: center;
@@ -174,8 +174,8 @@
     &.icon:before,
     &.icon-left:before,
     &.icon-right:before {
-      padding-right: 2vmin;
-      padding-left: 2vmin;
+      padding-right: 2px;
+      padding-left: 2px;
       font-size: $button-bar-button-icon-size;
       line-height: $button-bar-button-height;
     }
@@ -192,8 +192,8 @@
       }
     }
     &.button-clear {
-      padding-right: 2vmin;
-      padding-left: 2vmin;
+      padding-right: 2px;
+      padding-left: 2px;
       font-weight: 300;
       font-size: $bar-title-font-size;
 
@@ -208,7 +208,7 @@
 
     &.back-button {
       display: block;
-      margin-right: 5vmin;
+      margin-right: 5px;
       padding: 0;
       white-space: nowrap;
       font-weight: 400;
@@ -228,7 +228,7 @@
 
   .button-bar + .button,
   .button + .button-bar {
-    margin-left: 5vmin;
+    margin-left: 5px;
   }
 
   // Android 4.4 messes with the display property
@@ -241,11 +241,11 @@
     display: inline-block;
   }
   .buttons-left span {
-    margin-right: 5vmin;
+    margin-right: 5px;
     display: inherit;
   }
   .buttons-right span {
-    margin-left: 5vmin;
+    margin-left: 5px;
     display: inherit;
   }
 
@@ -256,9 +256,9 @@
   .buttons.pull-right,
   .title + .buttons {
     position: absolute;
-    top: 5vmin;
-    right: 5vmin;
-    bottom: 5vmin;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
   }
 
 }
@@ -272,11 +272,11 @@
   .bar {
 
     .back-button .icon:before {
-      font-size: 24vmin;
+      font-size: 24px;
     }
 
     .title {
-      font-size: 19vmin;
+      font-size: 19px;
       line-height: $bar-height;
     }
   }
@@ -343,21 +343,21 @@
 .bar-header {
   top: 0;
   border-top-width: 0;
-  border-bottom-width: 1vmin;
+  border-bottom-width: 1px;
   &.has-tabs-top{
-    border-bottom-width: 0vmin;
+    border-bottom-width: 0px;
     background-image: none;
   }
 }
 .tabs-top .bar-header{
-  border-bottom-width: 0vmin;
+  border-bottom-width: 0px;
   background-image: none;
 }
 
 // Footer at bottom
 .bar-footer {
   bottom: 0;
-  border-top-width: 1vmin;
+  border-top-width: 1px;
   border-bottom-width: 0;
   background-position: top;
 

@@ -1,0 +1,46 @@
+ <div id="wrapper" class="has-header" >
+   <div id="google_map">
+      <google-map-component 
+          style="width: 100%; height: 100%"
+          search="search"
+          on-search="logResults(results)"
+          marker="marker"
+          id-map="'map'">
+      </google-map-component> 
+   </div>
+
+   <div id="over_map" style="width: 95%; height: auto !important;" >
+     <div style="position: relative;" class="has-header" >
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input 
+            type="search" 
+            placeholder="Ej. Plaza las Americas"
+            ng-debounce="500"
+            ng-model="search">
+
+            
+
+        </label>
+
+       <ion-scroll direction="y" style="height: 38vh !important;" ng-if="results">
+         
+           <ion-list style="height: 50%">
+            <ion-item ng-repeat="item in results" ng-click="itemSelected(item)" class="item-icon-left">
+            <i class="icon">
+              <img ng-src="{{item.icon}}" style="width: 5vw">
+            </i>
+              <p>{{item.name}}</p>
+              <p>{{item.formatted_address}}</p>
+            </ion-item>
+          </ion-list>
+       </ion-scroll>
+
+         
+
+     </div>
+
+    
+
+   </div>
+</div>

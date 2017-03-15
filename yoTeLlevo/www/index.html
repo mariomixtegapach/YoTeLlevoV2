@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json?ionicCachebuster=84869">
 
     <!-- un-comment this code to enable service worker
     <script>
@@ -16,27 +16,30 @@
       }
     </script>-->
 
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDhMIX942d4P2sdgElnsyOSG5VFuoPbF2M&libraries=drawing,geometry"></script>
-     <script src="/js/RoutesMap.js"></script>
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css?ionicCachebuster=84869" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee%7CMerriweather%7CCrimson%20Tex" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css?ionicCachebuster=84869">
+    <link rel="stylesheet" type="text/css" href="css/angular-toast.css">
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9K4eTfsXLtMy8wwnwEjZ_K27QEXTrZf8&libraries=places"></script>
+    
     <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js?ionicCachebuster=84869"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <script src="cordova.js?ionicCachebuster=84869"></script>
 
     <!-- your app's js -->
-    <script src="js/yoTeLlevo-min.js"></script>
+    <script src="js/yoTeLlevo-min.js?ionicCachebuster=84869"></script>
   </head>
-  <body ng-app="yoTeLlevo">
+  <body ng-app="yoTeLlevo" ng-init="sessionStarted=false;showFab=false">
     <ion-pane>
         <div ui-view="">
         </div>
+          
     </ion-pane>
   </body>
 </html>

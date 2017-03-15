@@ -7,19 +7,27 @@
 		    templateUrl:'templates/login.html',
 		    controller: 'loginCtrl'
 		})
-		.controller('loginCtrl',['$scope','$ionicLoading','$state', loginCtrl]);
+		.controller('loginCtrl',['$scope','$ionicLoading','$state','$apiClient','toast', loginCtrl]);
 
 
-	function loginCtrl($scope,$ionicLoading, $state){
+	function loginCtrl($scope,$ionicLoading, $state, $apiClient, toast){
 		$scope.login = function login(){
 			console.log(this.username, this.password);
 
 			$scope.show();
 			
-			setTimeout(function(){
+			$apiClient.login(this.username, this.password).then(function(){
+				console.log(arguments);
+				//setTimeout(function(){
+					$scope.hide();
+					$state.go('dashboard');
+				//}, 2000);
+			}, function(err){
 				$scope.hide();
-				$state.go('dashboard');
-			}, 2000);
+				toast.show(err.data.message);
+			})
+
+			
 		}
 
 		$scope.show = function() {

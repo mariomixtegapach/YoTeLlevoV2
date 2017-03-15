@@ -1,0 +1,6 @@
+{
+  "url":"mongodb://localhost:27017/lunch",
+  "urlProd":"mongodb://admin:fx7A-JwQwpCN@127.10.97.2:27017/lunch",
+  "user":"admin",
+  "pass":"fx7A-JwQwpCN"
+}

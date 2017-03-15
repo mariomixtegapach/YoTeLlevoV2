@@ -1,4 +1,19 @@
 {
   "name": "yoTeLlevo",
-  "app_id": "3114a48f"
+  "app_id": "3114a48f",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://localhost:3000"
+    }
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }

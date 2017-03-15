@@ -1,24 +1,69 @@
+
+* {
+  font-size: 4vmin !important;
+  font-family: 'Handlee', cursive;
+}
+
 h1, h1 > span {
   font-size: 7vmin !important;
+  font-family: 'Crimson Tex', serif;
 }
 h2,  h2 > span {
   font-size: 6vmin !important;
+  font-family: 'Crimson Tex', serif;
 }
 h3,  h3 > span {
   font-size: 5vmin !important;
+  font-family: 'Handlee', serif;
 }
 
 h4,  h4 > span {
   font-size: 4vmin !important;
+  font-family: 'Handlee', serif;
 }
 
 h5,  h5 > span {
   font-size: 3vmin !important;
+  font-family: 'Handlee', serif;
 }
 
-* {
-  font-size: 4vmin !important;
-}
 i {
 	 font-size: 7vmin !important;
+	 font-family: 'Crimson Tex', serif;
+}
+
+button.padding-list {
+    padding: 4px !important;
+    font-family: 'Handlee', serif;
+}
+
+.header-text{
+  font-family: 'Handlee', serif;
+}
+
+/*- - - - -Girar- - - - */
+
+@keyframes girar {
+  0% {
+      transform: rotate(0deg)  translate(1vw, -0.3vh);
+     }
+  100% {
+   
+      transform: rotate(360deg)  translate(1vw, -0.3vh);
+     }
+  }
+
+  .rueda1 {
+    animation: girar 1s infinite linear;
+    position: relative;
+     transform-origin: center center;
+    width: 30px;
+    height: 30px
+ }
+
+/*- - - - -Girar- - - - */
+
+a {
+  color: #F5AC3A;
+  font-weight: bold;
 }

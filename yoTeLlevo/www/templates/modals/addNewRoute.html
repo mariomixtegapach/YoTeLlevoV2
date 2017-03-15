@@ -1,0 +1,137 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-energized">
+		  <h1 class="title header-text">Nueva ruta</h1>
+		  <div class="buttons">
+		  	<button class="button" ng-click="closeModal()">Cancelar</button>
+		  </div>
+    </ion-header-bar>
+
+    <ion-content>
+    	<div id="wrapper">
+		   <div id="google_map" style="top: 30px">
+		      <google-map-component 
+		          style="width: 100%; height: 100%"
+		          origin="searchs.originValue"
+		          origin-place="originPlace"
+		          destination-place="destinationPlace"
+		          destination="searchs.destinationValue"
+		          on-origin-search="createOrigin(results)"
+		          on-destination-search="createDestination(results)"
+		          on-route="onRoute(route)"
+		          encoded-route="encodedRoute"
+		          marker="markers"
+		          id-map="'routeMap'">
+		      </google-map-component> 
+		   </div>
+
+		   <div id="over_map" style="width: 95%; height: auto !important;" >
+		   <div class="alert alert-info" role="alert" ng-hide="hideAlert">
+		  		<strong>Atención</strong> 
+		  		<span style="float: right;" class="button-alert" ng-click="hideAlert=true"> X </span>
+		  		<p>Las rutas son caminos que tomas a diario en tu auto. Abstente de registrar rutas, si no tienes un vehiculo</p>
+			</div>
+
+		     <div style="position: relative;"  >
+		           <label class="item item-input" style="margin: 0.5vh 0;">
+		          <i class="icon ion-search placeholder-icon"></i>
+		          <input 
+		            type="search" 
+		            placeholder="Ej. Plaza las Americas"
+		            ng-debounce="500"
+		            ng-model="searchs.origin">
+
+		            <div class="" ng-class="{'rueda1' : originLoading }" ng-hide="!originLoading">
+		              <div style="width: 30px;height:30px">
+		                <i class=" icon " ng-class="!originLoading && originPlace ? 'ion-ios-close-outline' : 'ion-load-c'"></i>
+		              </div>
+		            </div>
+		           </label>
+
+			       <ion-scroll direction="y" style="max-height: 38vh !important;" ng-if="originResults">
+			           <ion-list style="height: 50%">
+			            <ion-item ng-repeat="item in originResults" ng-click="addMarkerFirst(item, true)" class="item-icon-left">
+			            <i class="icon">
+			              <img ng-src="{{item.icon}}" style="width: 5vw">
+			            </i>
+			              <p>{{item.name}}</p>
+			              <p>{{item.formatted_address}}</p>
+			            </ion-item>
+			          </ion-list>
+			       </ion-scroll>
+
+		           <label class="item item-input" style="margin: 0.5vh 0;">
+			          <i class="icon ion-search placeholder-icon"></i>
+			          <input 
+			            type="search" 
+			            placeholder="Ej. UPQROO"
+			            ng-debounce="500"
+			            ng-model="searchs.destination">
+
+			           
+			             <div class="" ng-class="{'rueda1' : destinationLoading }" ng-hide="!destinationLoading">
+			              <div style="width: 30px;height:30px">
+			                <i class=" icon " ng-class="!destinationLoading && destinationPlace ? 'ion-ios-close-outline' : 'ion-load-c'"></i>
+			              </div>
+			            </div>
+		           </label>
+
+			       <ion-scroll direction="y" style="height: 38vh !important;" ng-if="destinationResults">
+			           <ion-list style="height: 50%">
+			            <ion-item ng-repeat="item in destinationResults" ng-click="addMarkerFirst(item)" class="item-icon-left">
+			            <i class="icon">
+			              <img ng-src="{{item.icon}}" style="width: 5vw">
+			            </i>
+			              <p>{{item.name}}</p>
+			              <p>{{item.formatted_address}}</p>
+			            </ion-item>
+			          </ion-list>
+			       </ion-scroll>
+		     </div>
+
+		    <button class="button button-energized" style="width: 100%" ng-click="saveRoute()" ng-show="encodedRoute">
+	          Guardar ruta
+	        </button>
+
+		   </div>
+		</div>
+
+
+
+      	
+    </ion-content>
+
+  </ion-modal-view>
+
+
+
+
+
+
+
+
+  <style type="text/css">
+  	.alert{
+	  border-radius: 5px;
+	  border: 1px rgba(0,0,0,0) solid;
+	  margin: 2vw;
+	  padding: 4vw;
+	  text-align: center;
+  	}
+
+  	.alert-info {
+	  background-color: rgba(255, 165, 0, 0.41);
+	  color: rgb(8, 3, 3);
+	}
+
+	.button-alert{
+		float: right;
+		background-color: rgba(245, 229, 199, 0.86);
+		padding: 1vw 3vw;
+		top: 0;
+		right: 0;
+	}
+
+	#routeMap{
+		height: 100% !important;
+	}
+  </style>

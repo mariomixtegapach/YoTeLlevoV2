@@ -49,34 +49,34 @@ textarea {
   @include align-items(center);
   position: relative;
   overflow: hidden;
-  padding: 6vmin 0 5vmin 16vmin;
+  padding: 6px 0 5px 16px;
 
   input {
     @include border-radius(0);
-    @include flex(1, 220vmin);
+    @include flex(1, 220px);
     @include appearance(none);
     margin: 0;
-    padding-right: 24vmin;
+    padding-right: 24px;
     background-color: transparent;
   }
 
   .button .icon {
-    @include flex(0, 0, 24vmin);
+    @include flex(0, 0, 24px);
     position: static;
     display: inline-block;
     height: auto;
     text-align: center;
-    font-size: 16vmin;
+    font-size: 16px;
   }
 
   .button-bar {
     @include border-radius(0);
-    @include flex(1, 0, 220vmin);
+    @include flex(1, 0, 220px);
     @include appearance(none);
   }
 
   .icon {
-    min-width: 14vmin;
+    min-width: 14px;
   }
 }
 // prevent flex-shrink on WP
@@ -96,17 +96,17 @@ textarea {
   @include display-flex();
   @include flex(1, 0);
   @include align-items(center);
-  @include border-radius(4vmin);
-  padding-right: 8vmin;
-  padding-left: 8vmin;
+  @include border-radius(4px);
+  padding-right: 8px;
+  padding-left: 8px;
   background: #eee;
 }
 
 .item-input-inset .item-input-wrapper input {
-  padding-left: 4vmin;
-  height: 29vmin;
+  padding-left: 4px;
+  height: 29px;
   background: transparent;
-  line-height: 18vmin;
+  line-height: 18px;
 }
 
 .item-input-wrapper ~ .button {
@@ -115,20 +115,20 @@ textarea {
 
 .input-label {
   display: table;
-  padding: 7vmin 10vmin 7vmin 0vmin;
-  max-width: 200vmin;
+  padding: 7px 10px 7px 0px;
+  max-width: 200px;
   width: 35%;
   color: $input-label-color;
-  font-size: 16vmin;
+  font-size: 16px;
 }
 
 .placeholder-icon {
   color: #aaa;
   &:first-child {
-    padding-right: 6vmin;
+    padding-right: 6px;
   }
   &:last-child {
-    padding-left: 6vmin;
+    padding-left: 6px;
   }
 }
 
@@ -139,30 +139,30 @@ textarea {
 
   .input-label, .icon {
     display: inline-block;
-    padding: 4vmin 0 0 0vmin;
+    padding: 4px 0 0 0px;
     vertical-align: middle;
   }
 }
 
 .item-stacked-label input,
 .item-stacked-label textarea {
-  @include border-radius(2vmin);
-  padding: 4vmin 8vmin 3vmin 0;
+  @include border-radius(2px);
+  padding: 4px 8px 3px 0;
   border: none;
   background-color: $input-bg;
 }
 .item-stacked-label input {
   overflow: hidden;
-  height: $line-height-computed + $font-size-base + 12vmin;
+  height: $line-height-computed + $font-size-base + 12px;
 }
 
 .item-select.item-stacked-label select {
   position: relative;
-  padding: 0vmin;
+  padding: 0px;
   max-width: 90%;
   direction:ltr;
   white-space: pre-wrap;
-  margin: -3vmin;
+  margin: -3px;
 }
 
 .item-floating-label {
@@ -172,9 +172,9 @@ textarea {
 
   .input-label {
     position: relative;
-    padding: 5vmin 0 0 0;
+    padding: 5px 0 0 0;
     opacity: 0;
-    top: 10vmin;
+    top: 10px;
     @include transition(opacity .15s ease-in, top .2s linear);
 
     &.has-input {
@@ -206,7 +206,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"] {
   display: block;
-  padding-top: 2vmin;
+  padding-top: 2px;
   padding-left: 0;
   height: $line-height-computed + $font-size-base;
   color: $input-color;
@@ -222,7 +222,7 @@ input[type="color"] {
   input[type="month"],
   input[type="time"],
   input[type="week"] {
-    padding-top: 8vmin;
+    padding-top: 8px;
   }
 }
 
@@ -235,7 +235,7 @@ input[type="color"] {
 
 textarea {
   padding-left: 0;
-  @include placeholder($input-color-placeholder, -3vmin);
+  @include placeholder($input-color-placeholder, -3px);
 }
 
 // Reset height since textareas have rows
@@ -292,8 +292,8 @@ input[type="file"] {
 .cloned-text-input + input,
 .cloned-text-input + textarea {
   position: absolute !important;
-  left: -9999vmin;
-  width: 200vmin;
+  left: -9999px;
+  width: 200px;
 }
 
 

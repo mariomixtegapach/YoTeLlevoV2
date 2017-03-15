@@ -10,6 +10,8 @@
 		.controller('listRoutesCtrl',['$scope','$ionicLoading','$state', listRoutesCtrl]);
 
 	function listRoutesCtrl($scope,$ionicLoading, $state){
-		
+		$scope.onAddPoint = function(){
+			console.log("Crear ruta");
+		}
 	}
 })();
