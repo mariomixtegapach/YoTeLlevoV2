@@ -1,6 +1,6 @@
 {
-  "url":"mongodb://localhost:27017/yoTeLlevo",
-  "urlProd":"mongodb://admin:fx7A-JwQwpCN@127.10.97.2:27017/yoTeLlevo",
-  "user":"admin",
-  "pass":"fx7A-JwQwpCN"
+  "url":"mongodb://zymonogatari:bk2011shinigami@ds145289.mlab.com:45289/osu_subscriber_db",
+  "urlProd":"mongodb://zymonogatari:bk2011shinigami@ds145289.mlab.com:45289/osu_subscriber_db",
+  "user":"zymonogatari",
+  "pass":"bk2011shinigami"
 }

@@ -13,7 +13,7 @@
 	function loginCtrl($scope,$ionicLoading, $state, $apiClient, toast){
 		$scope.login = function login(){
 			console.log(this.username, this.password);
-
+			$state.go('dashboard');
 			$scope.show();
 			
 			$apiClient.login(this.username, this.password).then(function(){

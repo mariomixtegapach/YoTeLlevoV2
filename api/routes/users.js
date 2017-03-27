@@ -16,6 +16,12 @@ router.get('/', function(req, res, next) {
   
 });
 
+/*
+router.post('/newPoint', function(req, res){
+  console.log('ke onda ke petz');
+  res.status(500).json({});
+});*/
+
 router.put('/', function(req, res){
 	userServices.InserUser(req.body).then(function(user){
 		res.json({ error: false, user: user })

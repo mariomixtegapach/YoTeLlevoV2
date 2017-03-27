@@ -174,6 +174,19 @@ var UserService = function(config){
             }
             
             return defer.promise;
+        }, 
+        CreatePoints : function(id, points){
+            var defer = q.defer();
+            Model.update({_id : id}, 
+            {$push : {points: points}}
+            );
+            return defer.promise;
+        }, 
+        DeletePoint : function(id, pointName){
+            var defer = q.defer();
+            Model.update({_id : id}, 
+                {$pull: {points: {name: pointName}}});
+            return defer.promise;
         }
     };
 };

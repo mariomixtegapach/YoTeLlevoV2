@@ -1,7 +1,12 @@
 {
-  "userType":0,
   "name":"",
+  "lastname":"",
   "username":"",
   "password":"",
-  "photoUri":""
+  "photoUri":"", 
+  "points": [{
+  	"name": "",
+  	"latitude" : "", 
+  	"lenght" : ""
+  }]
 }

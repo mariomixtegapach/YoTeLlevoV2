@@ -73,6 +73,25 @@ app.get('/login', function(req, res, next) {
   
 });
 
+app.post('/users/addPoints', function(req, res){
+  var points = {},
+  var id = req.body.id;
+  points.name = req.body.name;
+  points.latitude = req.body.latitude;
+  points.length = req.body.length;
+  userService.CreatePoints(id, points).then(function(){
+    res.status(200).json({});
+  });
+});
+
+app.delete('/users/deletePoints', function(req, res){
+  var pointName = req.body.name;
+  var id = req.body.id;
+  userService.DeletePoint(id, pointName).then(function(){
+    res.status(200).json({});
+  });
+});
+
 app.use(function(req, res, next){
   sessionService
 });
