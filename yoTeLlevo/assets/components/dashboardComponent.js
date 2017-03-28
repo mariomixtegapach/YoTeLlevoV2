@@ -9,10 +9,20 @@
 		})
 		.controller('dashboardCtrl',
 			['$scope','$ionicLoading','$state',
-			'$ionicTabsDelegate','$rootScope','$ionicModal','$timeout', dashboardCtrl]);
+			'$ionicTabsDelegate','$rootScope','$ionicModal','$timeout', '$interval', '$apiClient', dashboardCtrl]);
 
 	function dashboardCtrl($scope,$ionicLoading, $state ,
-		                   $ionicTabsDelegate, $root, $ionicModal, $timeout){
+		                   $ionicTabsDelegate, $root, $ionicModal, $timeout, $interval, $apiClient){
+		
+		var checkNotifications = $interval(function(){
+			$apiClient.checkNotifications().then(function(notifications){
+				if(notifications){
+					for(var in = 0; i < notifications.lenght; in++){
+						$apiClient.sendNotification(notifications[in]);
+					}
+				}
+			});
+		}, 3000 );
 		
 		$root.sessionStarted = true;
 
@@ -40,7 +50,7 @@
 		}
 
 		$scope.logout = function logout(){
-			
+			$interval.cancel(checkNotifications);
 			$scope.show();
 			
 			setTimeout(function(){

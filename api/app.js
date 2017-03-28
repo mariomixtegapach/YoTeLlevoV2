@@ -96,6 +96,17 @@ app.use(function(req, res, next){
   sessionService
 });
 
+app.post('users/addNotifications', function(req, res){
+  userService.AddNotifications(req.body.notification).then(function(){
+    res.status(200).json({});
+  });
+});
+
+app.get('users/getNotifications/:userId', function(req, res){
+  userService.GetAllNotifications(req.params.userId).then(function(){
+    res.status(200).json({});
+  });
+});
 
 app.use('/', routes);
 app.use('/users', users)

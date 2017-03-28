@@ -187,6 +187,27 @@ var UserService = function(config){
             Model.update({_id : id}, 
                 {$pull: {points: {name: pointName}}});
             return defer.promise;
+        }, 
+        AddNotifications : function(notifications){
+            var defer = q.defer();
+            db.createIndex(collections.Users, {"createdAt": 1}, {expireAfterSeconds: 3600 }).then(function(){
+                Model.update({_id : notifications.id}, 
+                    {$push : {notifications: notifications.message}}
+                );
+            });
+            
+            return defer.promise;
+        }, 
+        GetAllNotifications: function(userId){
+            var defer = q.defer();
+
+                dao.get({ _id : new ObjectId(userId)}).then(function(users){
+                    defer.resolve(users.notifications);
+                }, function(err){
+                    defer.reject(err);
+                });
+            
+            return defer.promise;
         }
     };
 };

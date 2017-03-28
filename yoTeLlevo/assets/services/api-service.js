@@ -61,6 +61,20 @@
 			return proc('/login',{username : username, password: pass}, get);
 		}
 
+		this.checkNotifications = function(){
+			return get('/users/notifications');
+		}
+
+		this.sendNotification = function(notificationMessage){
+			body = {};
+			body.tokens = [localStorage.getItem('pushToken')];
+			body.profile = "";
+			body.notification = {
+				"message": notificationMessage
+			}
+
+			return $http.post('https://api.ionic.io/push/notifications', body);
+		}
 
 	}
 	
