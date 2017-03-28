@@ -9,5 +9,11 @@
   	"latitude" : "", 
   	"lenght" : ""
   }], 
-  "notifications": []
+  "notifications": [{
+    "id": 0,
+    "from": "", 
+    "to": "", 
+    "message": "",
+    "query":""
+  }]
 }

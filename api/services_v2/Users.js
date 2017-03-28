@@ -208,7 +208,21 @@ var UserService = function(config){
                 });
             
             return defer.promise;
-        }
+        }, 
+        DeleteNotification: function(userId, notificationId){
+            var defer = q.defer();
+            Model.update({_id : userId}, 
+                {$pull: {notifications: {id: notifications}}});
+            return defer.promise;
+        },
+        GetNotificationById: function(userId, notificationId){
+            var defer = q.defer();
+            Model.find({_id: userId, notifications.id: notificationId}).then(function(notifications){
+                defer.resolve(notifications);
+            });
+            return defer.promise;
+        } 
+
     };
 };
 
