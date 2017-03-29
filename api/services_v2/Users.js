@@ -187,7 +187,7 @@ var UserService = function(config){
             Model.update({_id : id}, 
                 {$pull: {points: {name: pointName}}});
             return defer.promise;
-        }, 
+        }/*, 
         AddNotifications : function(notifications){
             var defer = q.defer();
             db.createIndex(collections.Users, {"createdAt": 1}, {expireAfterSeconds: 3600 }).then(function(){
@@ -221,7 +221,7 @@ var UserService = function(config){
                 defer.resolve(notifications);
             });
             return defer.promise;
-        } 
+        } */
 
     };
 };

@@ -3,7 +3,7 @@
 		.service('$apiClient',['$http','$q',apiClientController]);
 
 	function apiClientController($http, $q){
-		var baseUri = 'http://yotellevo-chatapi.rhcloud.com';
+		var baseUri = '/api';//'http://yotellevo-chatapi.rhcloud.com';
 
 		var getHashFromLocal = function(){
 			return localStorage.getItem('yotellevoApi');
@@ -123,6 +123,22 @@
 			return proc('https://api.ionic.io/push/notifications', body, post);
 		}
 
+		/* - - - - -- - - - Routes - - - - - - - -- */
+
+		this.saveRoute = function(route){
+			var user = this.getLocalUser();
+			route.userId = user._id.toString();
+
+			return proc('/routes',route,put);
+		}
+
+		this.getRoutes = function(){
+			var user = this.getLocalUser();
+			console.log(user._id.toString())
+			return proc('/routes',{userId:user._id.toString()},get);
+		}
+
+		/* - - - - -- - - - Routes - - - - - - - -- */
 
 	}
 	

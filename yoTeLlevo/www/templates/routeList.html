@@ -1,8 +1,8 @@
 <ion-scroll zooming="true" direction="y" style="height: 78vh;   background-color: rgb(237, 237, 237);">
-	<card-component class="has-header" ng-repeat="a in []">
-	</card-component>
+	<card-route-component class="has-header" ng-repeat="a in routes" route="a">
+	</card-route-component>
 
-	<div class="row">
+	<div class="row" ng-show="!routes.length">
 		<div class="col" style="text-align: center">
 			<h1>Aun no tienes rutas</h1>
 			<img src="img/sadFace.png" width="80%">

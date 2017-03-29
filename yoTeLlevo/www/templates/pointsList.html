@@ -2,7 +2,7 @@
   <card-component point="a" class="has-header" ng-repeat="a in points" >
   </card-component>
 
-  <div class="row">
+  <div class="row" ng-hide="points.length">
     <div class="col" style="text-align: center">
       <h1>Aun no tienes puntos</h1>
       <img src="img/sadFace.png" width="80%">

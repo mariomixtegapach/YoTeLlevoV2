@@ -137,10 +137,12 @@
 				$apiClient.getPoints().then(function(points){
 					console.log(points);
 					$scope.points = points.result;
-				})
+				});
 			} else {
-
-				
+				$apiClient.getRoutes().then(function(routes){
+					console.log(routes);
+					$scope.routes = routes.result;
+				});
 			}
 		}, true);
 
@@ -188,7 +190,22 @@
 		//TODO: Save in db
 		$scope.saveRoute = function(){
 			$scope.show();
-			
+			//console.log($scope.encodedRoute);
+			var route = {
+				"encoded" : $scope.encodedRoute,
+				"userId"  : "",
+				"running" : false
+			};
+
+			$apiClient.saveRoute(route).then(function(routeSaved){
+				console.log(routeSaved);
+				toast.show("Ruta guardada!");
+				$scope.cleanMapVariables();
+				$scope.closeModal();
+				$scope.hide();
+			}, function(err){
+				toast.show("Algo salio mal: "+err.message);
+			})
 
 		}
 		
