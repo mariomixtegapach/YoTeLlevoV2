@@ -104,6 +104,7 @@ app.delete('/deletePoint', function(req, res){
   }, function(err){
     res.status(500).json({error : true, message: err.message});
   });
+})
 
 app.post('users/addNotifications', function(req, res){
   userService.AddNotifications(req.body.notification).then(function(){

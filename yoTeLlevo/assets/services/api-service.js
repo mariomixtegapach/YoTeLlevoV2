@@ -3,7 +3,7 @@
 		.service('$apiClient',['$http','$q',apiClientController]);
 
 	function apiClientController($http, $q){
-		var baseUri = '/api';
+		var baseUri = 'http://yotellevo-chatapi.rhcloud.com';
 
 		var getHashFromLocal = function(){
 			return localStorage.getItem('yotellevoApi');
@@ -32,6 +32,12 @@
 
 		var put = function(uri, data){
 			return $http.put(baseUri + uri, JSON.stringify(data), {
+				headers : getHeaders()
+			})
+		}
+
+		var post = function(uri, data){
+			return $http.post(baseUri + uri, JSON.stringify(data), {
 				headers : getHeaders()
 			})
 		}
@@ -103,18 +109,18 @@
 		/*- - -- - - Points - - - - - - */
 
 		this.checkNotifications = function(){
-			return get('/users/notifications');
+			return proc('/users/notifications',{},get);
 		}
 
 		this.sendNotification = function(notificationMessage){
-			body = {};
+			var body = {};
 			body.tokens = [localStorage.getItem('pushToken')];
 			body.profile = "";
 			body.notification = {
 				"message": notificationMessage
 			}
 
-			return $http.post('https://api.ionic.io/push/notifications', body);
+			return proc('https://api.ionic.io/push/notifications', body, post);
 		}
 
 

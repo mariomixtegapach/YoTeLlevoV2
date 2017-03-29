@@ -17,8 +17,8 @@
 		var checkNotifications = $interval(function(){
 			$apiClient.checkNotifications().then(function(notifications){
 				if(notifications){
-					for(var in = 0; i < notifications.lenght; in++){
-						$apiClient.sendNotification(notifications[in]);
+					for(var i = 0; i < notifications.lenght; i++){
+						$apiClient.sendNotification(notifications[i]);
 					}
 				}
 			});
@@ -188,10 +188,8 @@
 		//TODO: Save in db
 		$scope.saveRoute = function(){
 			$scope.show();
-			$timeout(function(){
-				$scope.closeModal();
-				$scope.hide();
-			}, 1000)
+			
+
 		}
 		
 		//TODO: Save in db

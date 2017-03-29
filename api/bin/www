@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('api:server');
 var http = require('http');
-
+var env = process.env;
 /**
  * Get port from environment and store in Express.
  */
@@ -24,8 +24,7 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
-server.listen(port);
+server.listen(env.NODE_PORT || 3000, env.NODE_IP || 'localhost');
 server.on('error', onError);
 server.on('listening', onListening);
 
