@@ -7,6 +7,8 @@ router.get('/', function(req, res, next) {
 	res.render('index', { title: 'Express' });
 });
 
+
+
 router.get('/routes', function(req, res){
 
 	var r = new RoutesServices();

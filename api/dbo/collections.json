@@ -1,13 +1,5 @@
 {
-  "Dishes" : "Dishes",
-  "Ingredients": "Ingredients",
-  "Comments":"Comments",
   "Users":"Users",
-  "Orders":"Orders",
-  "Payments":"Payments",
-  "Cards":"Cards",
-  "Rates":"Rates",
-  "Session":"session",
-  "Categories":"Categories"
-
+  "Points":"Points",
+  "Session":"session"
 }

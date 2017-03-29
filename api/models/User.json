@@ -1,6 +1,7 @@
 {
   "name":"",
   "lastname":"",
+  "userType":1,
   "username":"",
   "password":"",
   "photoUri":"", 

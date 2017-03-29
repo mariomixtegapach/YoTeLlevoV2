@@ -9,13 +9,13 @@
 		})
 		.controller('dashboardCtrl',
 			['$scope','$ionicLoading','$state',
-			'$ionicTabsDelegate','$rootScope','$ionicModal','$timeout', dashboardCtrl]);
+			'$ionicTabsDelegate','$rootScope','$ionicModal','$timeout','$apiClient','toast',  dashboardCtrl]);
 
 	function dashboardCtrl($scope,$ionicLoading, $state ,
-		                   $ionicTabsDelegate, $root, $ionicModal, $timeout){
+		                   $ionicTabsDelegate, $root, $ionicModal, $timeout,$apiClient,toast ){
 		
 		$root.sessionStarted = true;
-
+		$scope.points = [];
 		$scope.tabs = {
 			tabIndex : false
 		}
@@ -121,6 +121,18 @@
 			console.log("jpjpojpojpojpojpojpojojojpjpp",newval, oldval)
 		},true)
 
+		$scope.$watch('tabs', function(newVal, oldVal){
+			if(newVal.tabIndex){
+				$apiClient.getPoints().then(function(points){
+					console.log(points);
+					$scope.points = points.result;
+				})
+			} else {
+
+				
+			}
+		}, true);
+
 		$scope.createOrigin= function(res){
 			$scope.destinationResults = null;
 			$scope.originResults = res;
@@ -174,13 +186,36 @@
 		//TODO: Save in db
 		$scope.savePoint = function(){
 			$scope.show();
-			$timeout(function(){
+
+			console.log($scope.originPlace)
+
+			var tmpPoint = {
+				lat : $scope.originPlace.geometry.location.lat(),
+				lng : $scope.originPlace.geometry.location.lng(),
+				name : $scope.originPlace.name,
+				icon : $scope.originPlace.icon,
+				formattedAddress:$scope.originPlace.formatted_address
+			}
+
+			$apiClient.savePoint(tmpPoint).then(function(pp){
+				console.log(pp);
+				toast.show("Punto guardado!");
+				$scope.cleanMapVariables();
 				$scope.closeModal();
 				$scope.hide();
-			}, 1000)	
+			}, function(err){
+				toast.show("Algo salio mal: "+err.message);
+			})
+
+
+
+			/*$timeout(function(){
+				$scope.closeModal();
+				$scope.hide();
+			}, 1000)*/	
 		}
 
-		$scope.cleanMapVariables();
+		
 
 
 	}

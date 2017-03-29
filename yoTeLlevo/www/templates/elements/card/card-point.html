@@ -1,0 +1,25 @@
+
+	<div class="card" style="position: relative;">
+		<div class="row">
+			<div class="col" style="text-align: center">
+				<img ng-src="https://maps.googleapis.com/maps/api/staticmap?center={{point.lat}},{{point.lng}}&zoom=13&size=600x300&maptype=roadmap&markers=color:orange%7Clabel:{{point.name}}%7C{{point.lat}},{{point.lng}}&key=AIzaSyA9K4eTfsXLtMy8wwnwEjZ_K27QEXTrZf8" style="max-width:100%" />		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col" style="text-align: center;">
+				<div class="row">
+					<div class="col">
+						<h4 style="margin-bottom: 0;">{{point.name}}</h4>
+						<span style="font-weight: bolder;margin-bottom: 10px">{{point.formattedAddress}}</span>		
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>	
+
+
+<style type="text/css">
+	.row, .col {
+	    padding: 0;
+	}
+</style>

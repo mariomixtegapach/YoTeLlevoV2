@@ -62,9 +62,12 @@
               </div>
             </div>
 
-             <list-routes-component ng-show="!tabs.tabIndex"></list-routes-component>
+             <list-routes-component 
+                ng-show="!tabs.tabIndex"></list-routes-component>
           
-            <list-points-component  ng-show="tabs.tabIndex"></list-points-component>
+            <list-points-component  
+                ng-show="tabs.tabIndex"
+                points="points"></list-points-component>
 
             <fab-button fab-on-click="fabOnClick"></fab-button>
 

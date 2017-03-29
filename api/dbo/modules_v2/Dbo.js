@@ -21,7 +21,6 @@ Dbo.prototype.get = function(where, pageOptions){
 
     return common.exec(function(db){
         var defer = q.defer();
-
         common.finder(db,self.config.collection,where,pageOptions)
             .then(function(results){
                 defer.resolve(results);
@@ -44,7 +43,7 @@ Dbo.prototype.push = function(item){
 
         common.inserter(db,self.config.collection,safeItem)
             .then(function(results){
-                console.log('INSERTED ------ \n',results)
+               console.log('INSERTED ------ \n', self.config.collection)
                 defer.resolve(results);
             }, function(err){
                 defer.reject(err);

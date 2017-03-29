@@ -12,7 +12,7 @@
 		var getHeaders = function(){
 			return {
 					Authorization :"Basic dXNlcnlvdGVsbGV2bzp5b3RlbGxldm8=",
-				    'Content-Type':'text/plain'
+				    'Content-Type':'application/json'
 				};
 		}
 
@@ -31,7 +31,7 @@
 		}
 
 		var put = function(uri, data){
-			return $http.put(baseUri + uri, data, {
+			return $http.put(baseUri + uri, JSON.stringify(data), {
 				headers : getHeaders()
 			})
 		}
@@ -57,10 +57,49 @@
 			return defer.promise;
 		}
 
-		this.login = function(username, pass){
-			return proc('/login',{username : username, password: pass}, get);
+		this.getLocalUser = function(){
+
+			var userString  = localStorage.getItem('ytllocaluser');
+			return userString ? JSON.parse(userString) : null;
 		}
 
+		this.login = function(username, pass){
+			var defer = $q.defer();
+			proc('/login',{username : username, password: pass}, get).then(function(data){
+				localStorage.setItem('ytllocaluser',JSON.stringify(data.user));
+				defer.resolve(data)
+			}, defer.reject);
+			return defer.promise;
+		}
+
+		this.register = function(user){
+			return proc('/users',user, put);	
+		}
+
+		this.checkUsername = function(username){
+			return proc('/users/checkUsername/'+username,{}, get);	
+		}
+
+		/*- - -- - - Points - - - - - - */
+
+		this.savePoint = function(point){
+
+			var user = this.getLocalUser();
+			point.userId = user._id.toString();
+
+			return proc('/addPoint', {point:point}, put);
+		}
+
+		this.deletePoint = function(idPoint){
+			return proc('/deletePoint', {idPoint: idPoint}, deletes);
+		}
+
+		this.getPoints = function(page){
+			var user = this.getLocalUser();
+			console.log(user._id.toString())
+			return proc('/getPoints', {idUser: user._id.toString(), page: page}, get);	
+		}
+		/*- - -- - - Points - - - - - - */
 
 	}
 	

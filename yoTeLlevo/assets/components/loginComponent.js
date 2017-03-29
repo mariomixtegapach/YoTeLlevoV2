@@ -12,12 +12,12 @@
 
 	function loginCtrl($scope,$ionicLoading, $state, $apiClient, toast){
 		$scope.login = function login(){
-			console.log(this.username, this.password);
-			$state.go('dashboard');
-			$scope.show();
+			//console.log(this.username, this.password);
+			//$state.go('dashboard');
+			//$scope.show();
 			
-			$apiClient.login(this.username, this.password).then(function(){
-				console.log(arguments);
+			$apiClient.login(this.username, this.password).then(function(asd){
+				console.log(arguments,asd);
 				//setTimeout(function(){
 					$scope.hide();
 					$state.go('dashboard');

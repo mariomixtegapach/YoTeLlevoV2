@@ -15,6 +15,9 @@ var sessionService = new SessionService();
 var UserService = require('./services_v2/Users');
 var userService = new UserService();
 
+var PointsService = require('./services_v2/Points');
+var pointService = new PointsService();
+
 sessionService.CreateIndex();
 
 var app = express();
@@ -73,28 +76,36 @@ app.get('/login', function(req, res, next) {
   
 });
 
-app.post('/users/addPoints', function(req, res){
-  var points = {},
-  var id = req.body.id;
-  points.name = req.body.name;
-  points.latitude = req.body.latitude;
-  points.length = req.body.length;
-  userService.CreatePoints(id, points).then(function(){
-    res.status(200).json({});
+app.put('/addPoint', function(req, res){
+  var points = req.body.point;
+  
+  pointService.CreatePoint(points).then(function(point){
+    res.status(200).json({point: point});
+  }, function(err){
+    res.status(500).json({errr: true, message: err.message})
   });
 });
 
-app.delete('/users/deletePoints', function(req, res){
-  var pointName = req.body.name;
-  var id = req.body.id;
-  userService.DeletePoint(id, pointName).then(function(){
-    res.status(200).json({});
+app.get('/getPoints', function(req, res){
+  var idUser = req.query.idUser;
+  var page = req.query.page || 1;
+  pointService.GetPointsByUserId(idUser,page).then(function(points){
+    res.status(200).json(points);
+  }, function(err){
+    res.status(500).json({errr: true, message: err.message})
   });
 });
 
-app.use(function(req, res, next){
-  sessionService
+app.delete('/deletePoint', function(req, res){
+  var pointId = req.body.idPoint;
+  
+  pointService.DeletePoint(pointId).then(function(){
+    res.status(200).json({});
+  }, function(err){
+    res.status(500).json({error : true, message: err.message});
+  });
 });
+
 
 
 app.use('/', routes);

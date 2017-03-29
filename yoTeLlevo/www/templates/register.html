@@ -1,4 +1,27 @@
 
+<style type="text/css">
+  .radioUserType {
+    width: 5px !important;
+    min-width: 50%;
+    height: 50px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-left: 1px solid rgb(219, 219, 219);
+    max-width: 50%;
+    border-right: 1px solid rgb(219, 219, 219);
+    text-align: center;
+
+  }
+  .input-type-container{
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+  .typeSel{
+    background-color: rgb(236, 166, 39) !important;
+    color:white !important;
+  }
+</style>
 
 <!--<ion-header-bar class="bar-energized">
   <h1 class="title">Yo Te Llevo</h1>
@@ -32,8 +55,31 @@
 
            <label class="item item-input">
              <span class="input-label">Password</span>
-             <input type="password" ng-model="user.pass">
+             <input type="password" ng-model="user.password">
            </label>
+
+           <label class="item item-input" style="text-align: center">
+             <span class="input-label" style="width: 100%;text-align: center;  max-width: none;">Tipo de usuario</span>
+           </label>
+
+           <!--<label class="item item-input input-type-container" >-->
+           <div class="button-bar">
+               <a class="radioUserType button"
+                ng-click="user.userType=0" 
+                ng-class="{typeSel : user.userType==0}">
+                   <i class="icon ion-model-s">  </i>
+                   Conductor
+                </a>
+                 
+                <a class="radioUserType button" 
+                ng-click="user.userType=1" 
+                ng-class="{typeSel : user.userType==1}">
+                   <i class="icon ion-android-walk">  </i>
+                   Pasajero
+                </a>
+             </div>
+           <!--</label>-->
+
     </div>
 
     <div class="row">
