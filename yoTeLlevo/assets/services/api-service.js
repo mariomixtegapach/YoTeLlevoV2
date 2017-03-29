@@ -80,6 +80,7 @@
 			return proc('/users/checkUsername/'+username,{}, get);	
 		}
 
+
 		/*- - -- - - Points - - - - - - */
 
 		this.savePoint = function(point){
@@ -100,6 +101,22 @@
 			return proc('/getPoints', {idUser: user._id.toString(), page: page}, get);	
 		}
 		/*- - -- - - Points - - - - - - */
+
+		this.checkNotifications = function(){
+			return get('/users/notifications');
+		}
+
+		this.sendNotification = function(notificationMessage){
+			body = {};
+			body.tokens = [localStorage.getItem('pushToken')];
+			body.profile = "";
+			body.notification = {
+				"message": notificationMessage
+			}
+
+			return $http.post('https://api.ionic.io/push/notifications', body);
+		}
+
 
 	}
 	

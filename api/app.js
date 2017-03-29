@@ -104,8 +104,36 @@ app.delete('/deletePoint', function(req, res){
   }, function(err){
     res.status(500).json({error : true, message: err.message});
   });
+
+app.post('users/addNotifications', function(req, res){
+  userService.AddNotifications(req.body.notification).then(function(){
+    res.status(200).json({});
+  });
 });
 
+app.get('users/getNotifications/:userId', function(req, res){
+  userService.GetAllNotifications(req.params.userId).then(function(notifications){
+    res.status(200).json(notifications);
+  });
+});
+
+app.delete('/users/deleteNotifications/:userId/:notificationId', function(req, res){
+  var notificationId = req.params.notificationId;
+  var userId = req.params.userId;
+
+  userService.DeleteNotification(userId, notificationId).then(function(){
+    res.status(200).json({});
+  });
+});
+
+app.get('users/getNotificationById/:userId/:notificationId', function(req, res){
+  var notificationId = req.params.notificationsId;
+  var userId = req.params.userId;
+
+  userService.GetNotificationById(notificationId, userId).then(function(notification){
+    res.status(200).json(notification);
+  });
+});
 
 
 app.use('/', routes);
